@@ -1,0 +1,4 @@
+This app handle the availability of quests to clients based on:
+    - Location
+    - Access Code
+    - Email address
