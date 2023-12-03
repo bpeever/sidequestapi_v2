@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Sending Template</title>
+</head>
+<body>
+    <h1>WebSocket Sending Template</h1>
+
+    <button onclick="sendMessage()">Send Message</button>
+
+    <script>
+        // Connect to the WebSocket
+        const socket = new WebSocket('ws://localhost:8000/ws/playground/test_websocket_sending/');
+
+        // Function to send a message to the WebSocket group
+        function sendMessage() {
+            const message = JSON.stringify({message:'Hello, WebSocket group!'});
+            socket.send(message);
+        }
+    </script>
+</body>
+</html>
