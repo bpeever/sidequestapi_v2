@@ -8,7 +8,7 @@ DEBUG = False
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
-CELERY_BROKER_URL = os.environ['CELLERY_BROKER_URL']
+CELERY_BROKER_URL = os.environ['CELERY_BROKER_URL']
 CHANNEL_LAYER_REDIS_URL = os.environ['CHANNEL_LAYER_REDIS_URL']
 
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware',]
