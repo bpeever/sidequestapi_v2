@@ -15,13 +15,12 @@ MIDDLEWARE.insert(1,'whitenoise.middleware.WhiteNoiseMiddleware')
 
 ALLOWED_HOSTS = ['*', "sidequestapi-v2-3ac308dc66da.herokuapp.com"]
 CSRF_TRUSTED_ORIGINS = ["http://sidequestapi-v2-3ac308dc66da.herokuapp.com", "https://sidequestapi-v2-3ac308dc66da.herokuapp.com"]
+
+# TODO: Change this to the react app host once complete. 
 CORS_ORIGIN_WHITELIST = [
     "http://sidequestapi-v2-3ac308dc66da.herokuapp.com",
     "https://sidequestapi-v2-3ac308dc66da.herokuapp.com",
-    "http://localhost:8080",
-    "http://localhost:8000",
-    "http://localhost:3000",
-    "http://localhost:4200"]
+    ]
 
 django_heroku.settings(locals())
 
