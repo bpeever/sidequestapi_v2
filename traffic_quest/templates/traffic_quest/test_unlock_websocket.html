@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Django Template</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to my Django Template</h1>
+    </header>
+
+    <main>
+        <!-- Your content goes here -->
+    </main>
+    
+    <script>
+
+        /*const chatSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/traffic_quest/'
+            + 'test_unlock_websocket'
+            + '/'
+        );*/
+
+        const webSocket = new WebSocket('ws://localhost:8000/ws/traffic_quest/test_unlock_websocket/')
+
+    </script>
+
+    <footer>
+        <p>&copy; 2022 My Django Template. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

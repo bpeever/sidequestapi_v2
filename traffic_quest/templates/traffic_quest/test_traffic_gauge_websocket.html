@@ -1,0 +1,46 @@
+<!-- FILEPATH: /mnt/c/Users/brian/Desktop/sideQuest/sidequestapi_v2/traffic_quest/templates/test_traffic_gauge_websocket.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Traffic Gauge</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{% static 'traffic_quest/js/scripts.js' %}"></script>
+</head>
+
+<body>
+    <div style="display:flex; flex-direction:column; width:20%; align-items: center;">
+        <h1>Traffic Gauge</h1>
+        <progress id="progressBar" value="0" max="100"></progress>
+        <h1 id="counter" style="border-radius: 3px; border-color: black; border-style: solid; padding:4%">23</h1></br>
+        <button onclick="updateTrafficProgress(quest_id.value)">Update Traffic Progress</button></br>
+        <button onclick="updateTrafficProgress()">Remove Lock</button></br>
+        <select id="questSelector">
+            {% for item in traffic_quests %}
+                <option value="{{ item.id }}">{{ item }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <script>
+        const quest_id = document.getElementById("questSelector")
+        
+        quest_id.addEventListener("change", function() {
+            console.log("quest_id", quest_id.value)
+        });
+        
+    </script>
+            
+    <script>
+        const webSocket = new WebSocket('ws://localhost:8000/ws/traffic_quest/test_unlock_websocket/') 
+        webSocket.onmessage = (e) => {
+            console.log("recieved a message",JSON.parse(e.data))
+            const counter = document.getElementById("counter")
+            counter.innerText = JSON.parse(e.data)['message']
+        }
+
+    </script>
+
+</body>
+</html>

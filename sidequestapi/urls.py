@@ -16,7 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
+#TODO: Could just name this API since it will be the main access point to all quests
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('playground/', include('playground.urls')),
+    path('traffic_quest/', include('traffic_quest.urls')),
+    path('prize_award/', include('prize_award.urls')),
+    path('quest_api/', include('quest_api.urls')),
+
+    path("__debug__/", include("debug_toolbar.urls")), # For the debug toolbar
 ]

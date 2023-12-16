@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import PrizeEntree
 
-# Register your models here.
+@admin.register(PrizeEntree)
+class PrizeEntreeAdmin(admin.ModelAdmin):
+    list_display = ('user', 'created_at', 'updated_at')

@@ -19,12 +19,18 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sidequestapi.settings.dev")
 django_asgi_app = get_asgi_application()
 
 import playground.routing
+import traffic_quest.routing
 
 application = ProtocolTypeRouter(
     {
         "http": django_asgi_app,
         "websocket": AllowedHostsOriginValidator(
-            AuthMiddlewareStack(URLRouter(playground.routing.websocket_urlpatterns)) # Pass the router patterns from the chat app
+            AuthMiddlewareStack(
+                URLRouter(
+                    playground.routing.websocket_urlpatterns
+                    + traffic_quest.routing.websocket_urlpatterns
+                )
+            ) # Pass the router patterns from the chat app
         ),
     }
 )
