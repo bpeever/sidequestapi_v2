@@ -34,3 +34,5 @@ application = ProtocolTypeRouter(
         ),
     }
 )
+
+channel_layer = application
