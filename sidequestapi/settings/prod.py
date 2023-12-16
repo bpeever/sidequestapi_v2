@@ -11,9 +11,9 @@ SECRET_KEY = os.environ['SECRET_KEY']
 CELERY_BROKER_URL = os.environ['CELERY_BROKER_URL']
 CHANNEL_LAYER_REDIS_URL = os.environ['CHANNEL_LAYER_REDIS_URL']
 
-MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware',]
+MIDDLEWARE.insert(1,'whitenoise.middleware.WhiteNoiseMiddleware')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', "sidequestapi-v2-3ac308dc66da.herokuapp.com"]
 
 django_heroku.settings(locals())
 
