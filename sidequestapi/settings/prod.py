@@ -8,7 +8,6 @@ DEBUG = False
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
-REDIS_URL = os.environ['REDIS_URL']
 CELERY_BROKER_URL = os.environ['CELLERY_BROKER_URL']
 CHANNEL_LAYER_REDIS_URL = os.environ['CHANNEL_LAYER_REDIS_URL']
 
