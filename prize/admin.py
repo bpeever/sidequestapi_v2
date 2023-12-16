@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import Prize
 
+class PrizeInline(admin.TabularInline):
+    model = Prize
+    extra = 1
 
 @admin.register(Prize)
 class PrizeAdmin(admin.ModelAdmin):

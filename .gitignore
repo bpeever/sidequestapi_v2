@@ -1,4 +1,5 @@
 /venv/
+/venv_wsl/
 
 # Created by https://www.gitignore.io
 
@@ -82,6 +83,9 @@ docs/_build/
 # PyBuilder
 target/
 
+# TODO - Delete 
+temp_requirements.txt
+
 
 ### Django ###
 *.log
@@ -96,3 +100,12 @@ db.sqlite3
 
 ### Dev Settings ###
 sidequestapi/settings/dev.py
+
+# Statc Files 
+staticfiles/
+
+# For Jetbrains IDE 
+/.idea/
+
+# For windows to store custom properties (icons, tooltips, etc)
+desktop.ini

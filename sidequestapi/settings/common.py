@@ -43,12 +43,18 @@ INSTALLED_APPS = [
     'crowd_quest',
     'quest_availability',
     'traffic_quest',
-    'prize_award'
+    'prize_award', 
+    'prize_redemption',
+    'rest_framework',
+    'debug_toolbar', 
+    'quest_api'
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware", # For CORS
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware', # For debug toolbar - TODO move to dev.py
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -97,6 +103,19 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+#Middleware IP throttling of requests
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ], 
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '20/hour',
+        'user': '50/hour'
+    }
+}
 
 
 # Internationalization
