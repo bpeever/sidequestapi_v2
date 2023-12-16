@@ -14,7 +14,7 @@ CHANNEL_LAYER_REDIS_URL = os.environ['CHANNEL_LAYER_REDIS_URL']
 MIDDLEWARE.insert(1,'whitenoise.middleware.WhiteNoiseMiddleware')
 
 ALLOWED_HOSTS = ['*', "sidequestapi-v2-3ac308dc66da.herokuapp.com"]
-CSRF_TRUSTED_ORIGINS = ["http://sidequestapi-v2-3ac308dc66da.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS = ["http://sidequestapi-v2-3ac308dc66da.herokuapp.com", "https://sidequestapi-v2-3ac308dc66da.herokuapp.com"]
 
 
 django_heroku.settings(locals())
