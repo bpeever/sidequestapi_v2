@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import uuid
 
 
 class Participant(models.Model):
@@ -11,6 +12,7 @@ class Participant(models.Model):
         return self.user.username
 
 class TrafficQuest(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=200, null=True, blank=True)
     start_date = models.DateTimeField()
