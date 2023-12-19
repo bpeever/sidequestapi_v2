@@ -23,7 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Application definition
 
-
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
@@ -103,19 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
-#Middleware IP throttling of requests
-REST_FRAMEWORK = {
-    'DEFAULT_THROTTLE_CLASSES': [
-        'rest_framework.throttling.AnonRateThrottle',
-        'rest_framework.throttling.UserRateThrottle'
-    ], 
-    'DEFAULT_THROTTLE_RATES': {
-        'anon': '20/hour',
-        'user': '50/hour'
-    }
-}
 
 
 # Internationalization
